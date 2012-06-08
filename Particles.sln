@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Particles", "Particles.vcxproj", "{0D51D6D3-EA13-4EC7-AB2F-88CBC99B506D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0D51D6D3-EA13-4EC7-AB2F-88CBC99B506D}.Debug|Win32.ActiveCfg = Debug|Win32
+		{0D51D6D3-EA13-4EC7-AB2F-88CBC99B506D}.Debug|Win32.Build.0 = Debug|Win32
+		{0D51D6D3-EA13-4EC7-AB2F-88CBC99B506D}.Release|Win32.ActiveCfg = Release|Win32
+		{0D51D6D3-EA13-4EC7-AB2F-88CBC99B506D}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

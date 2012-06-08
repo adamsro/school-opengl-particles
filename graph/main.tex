@@ -1,0 +1,101 @@
+% Robert Adams CS 475
+
+\documentclass[letterpaper,10pt]{article} %twocolumn titlepage 
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+
+\usepackage{alltt}
+\usepackage{float}
+\usepackage{color}
+\usepackage{url}
+
+\usepackage{balance}
+\usepackage[TABBOTCAP, tight]{subfigure}
+\usepackage{enumitem}
+\usepackage{pstricks, pst-node}
+
+
+\usepackage{geometry}
+\geometry{margin=0.8in, textheight=8.5in} %textwidth=6in
+
+%random comment
+
+\newcommand{\cred}[1]{{\color{red}#1}}
+\newcommand{\cblue}[1]{{\color{blue}#1}}
+
+\usepackage{hyperref}
+
+\def\name{Robert Adams}
+%% The following metadata will show up in the PDF properties
+\hypersetup{
+	colorlinks = true,
+	urlcolor = black,
+	pdfauthor = {\name},
+	pdfkeywords = {cs745},
+	pdftitle = 	{CS 475 Project 8: OpenCL Array Multiplication},
+pdfsubject = {CS 475 Project 8},
+	pdfpagemode = UseNone,
+}
+
+
+\begin{document}
+\title{CS 475 Project 8: OpenCL Array Multiplication} 
+\author{Robert Adams}
+\maketitle
+
+
+
+\section{Commentary}
+
+\indent First thing to note: GPU performance absolutely destroys SIMD performance,
+iny my case by a factor of over 50x. 
+\\
+Also of note is that modifying local work size does not affect the 
+performance. I was not able to see a difference on either my home 
+system (specs below), or the CGEL lab. This may be because the video
+cards of both are rather out of date.  For a new, or properly setup
+machine we should see performance increase as the local size increases,
+since more processing power has been assigned to the task.
+
+\subsection{System Specs}
+
+\begin{itemize}
+\item AMD Athlon II X4 630 Processor, 2800 Mhz, 4 Cores, 4 Logical Processors
+\item 4.00 GB RAM
+\item  NVIDIA GeForce 98000 GT, 512MB RAM
+\item  Driver Version 8.17.13
+\end{itemize}
+
+
+\pagebreak
+
+\begin{figure} [ht]
+	\centering
+	\input{global.tex}
+	%\caption{Speed of height calculations performed on a subdivided surface} 
+	\label{runtimes}
+\end{figure}
+
+\begin{figure} [ht]
+	\centering
+	\input{local.tex}
+	%\caption{Speed of height calculations performed on a subdivided surface} 
+	\label{runtimes}
+\end{figure}
+
+%\begin{table}  [ht]
+	%\centering
+	%    \begin{tabular}{llllll}
+%\verb|#|months & precipitation, in. & temperature, celsuis & height, in.
+               %& \#deer & blood rain\\ \hline 
+%0 & 7.130446 & 3.047354 & 7.280658 & 1 & 0\\ 
+%1 & 11.88923 & 5.459258 & 7.399446 & 2 & 0\\ 
+%2 & 12.868473 & 5.293376 & 7.097805 & 3 & 0\\ 
+%3 & 11.705143 & 13.475433 & 0 & 4 & 0\\ 
+
+		%    \end{tabular}
+	%\end{table}
+
+	\end{document}

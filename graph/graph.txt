@@ -1,0 +1,21 @@
+set term epslatex size 6.0,3.5
+set output "graph.eps"
+set xlabel "particles"
+set ylabel "GigaParticles/sec" #offset -5.0, 0.0
+set style data lp
+set nokey
+
+#set log x
+#set terminal latex enhanced color
+#set output "plot.tex"
+#set yrange [80:150]
+#set key outside top 
+
+plot 'output.out' title '262144' lc rgb '#228654' lt 1 lw  1.5
+
+#'l-524288.out' title '524288' lc rgb '#00A855' lt 1 lw  1.5, \
+#'l-786432.out' title '786432' lc rgb '#228686' lt 1 lw  1.5, \
+#'l-1048576.out' title '1048576' lc rgb '#00A8A8' lt 1 lw  1.5, \
+#'l-1310720.out' title '1310720' lc rgb '#225486' lt 1 lw  1.5, \
+#'l-1572864.out' title '1572864' lc rgb '#0055A8' lt 1 lw  1.5, \
+#'l-1835008.out' title '1835008' lc rgb '#9A350E' lt 1 lw  1.5, \
