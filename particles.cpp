@@ -46,7 +46,7 @@ const float VMAX =	{    100. };
 
 const int NUM_PARTICLES = 1*1024*1024;
 const int LOCAL_SIZE    = 32;
-const char *CL_FILE_NAME = { "particles.cl" };
+const char *CL_FILE_NAME = { "adamsro.cl" };
 
 
 const int GLUITRUE  = { true  };
@@ -423,7 +423,7 @@ InitCL( )
 
 	status = clGetPlatformIDs( 1, &Platform, NULL );
 	PrintCLError( status, "clGetPlatformIDs: " );
-	
+
 	// get the device id:
 
 	status = clGetDeviceIDs( Platform, CL_DEVICE_TYPE_GPU, 1, &Device, NULL );
@@ -467,7 +467,7 @@ InitCL( )
 		fprintf( stderr, "clCreateCommandQueue failed\n" );
 
 	// create the velocity array and the opengl vertex array buffer and color array buffer:
-	
+
 	delete [ ] hVel;
 	hVel = new struct xyzw [ NUM_PARTICLES ];
 
@@ -721,7 +721,7 @@ void
 MouseButton( int button, int state, int x, int y )
 {
 	int b;			// LEFT, MIDDLE, or RIGHT
-	
+
 	switch( button )
 	{
 		case GLUT_LEFT_BUTTON:
@@ -955,7 +955,7 @@ Axes( float length )
 			int j = xorder[i];
 			if( j < 0 )
 			{
-				
+
 				glEnd( );
 				glBegin( GL_LINE_STRIP );
 				j = -j;
@@ -971,7 +971,7 @@ Axes( float length )
 			int j = yorder[i];
 			if( j < 0 )
 			{
-				
+
 				glEnd( );
 				glBegin( GL_LINE_STRIP );
 				j = -j;
@@ -987,7 +987,7 @@ Axes( float length )
 			int j = zorder[i];
 			if( j < 0 )
 			{
-				
+
 				glEnd( );
 				glBegin( GL_LINE_STRIP );
 				j = -j;
@@ -1027,7 +1027,7 @@ Quit( )
 
 
 
-#define TOP	2147483647.		// 2^31 - 1	
+#define TOP	2147483647.		// 2^31 - 1
 
 float
 Ranf( float low, float high )
@@ -1143,7 +1143,7 @@ PrintCLError( cl_int errorCode, char * prefix, FILE *fp )
 {
 	if( errorCode == CL_SUCCESS )
 		return;
-	
+
 	const int numErrorCodes = sizeof( ErrorCodes ) / sizeof( struct errorcode );
 	char * meaning = "";
 	for( int i = 0; i < numErrorCodes; i++ )
